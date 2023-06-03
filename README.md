@@ -7,7 +7,7 @@ Fullstack Developer
 👨‍💻 Full-stack Web & Mobile Developer 🌐📱✨ Passionate about crafting immersive digital experiences and building innovative solutions across multiple platforms. 🚀🌟
 
 * 🌍  I'm based in India
-* 🖥️  See my portfolio at [Dev Vartik](http://https://vartikanand.vercel.app/)
+* 🖥️  See my portfolio at [Dev Vartik](http://vartikanand.vercel.app/)
 * ✉️  You can contact me at [vartikkanand@gmail.com](mailto:vartikkanand@gmail.com)
 * 🧠  I'm learning Python ,NextsJs,Flutter
 * 🤝  I'm open to collaborating on LeanHive
