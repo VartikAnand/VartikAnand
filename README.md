@@ -55,6 +55,7 @@ Fullstack Developer
 <a href="https://www.figma.com/" target="_blank" rel="noreferrer"><img src="https://raw.githubusercontent.com/danielcranney/readme-generator/main/public/icons/skills/figma-colored.svg" width="36" height="36" alt="Figma" /></a>
 </p>
 
+
 <h3 align="left">🔥   My Stats :</h3>
 
 ###
@@ -69,23 +70,6 @@ Fullstack Developer
 <img src="https://raw.githubusercontent.com/vartikanand/vartikanand/output/snake.svg" alt="Snake animation" />
 
 ###
-
-<div align="center">
-  <a href="https://www.linkedin.com/in/vartikanand" target="_blank">
-    <img src="https://raw.githubusercontent.com/maurodesouza/profile-readme-generator/master/src/assets/icons/social/linkedin/default.svg" width="37" height="25" alt="linkedin logo"  />
-  </a>
-  <a href="mailto:mailvartik@gmail.com" target="_blank">
-    <img src="https://raw.githubusercontent.com/maurodesouza/profile-readme-generator/master/src/assets/icons/social/gmail/default.svg" width="37" height="25" alt="gmail logo"  />
-  </a>
-  <img src="https://raw.githubusercontent.com/maurodesouza/profile-readme-generator/master/src/assets/icons/social/facebook/default.svg" width="37" height="25" alt="facebook logo"  />
-  <a href="https://www.linkedin.com/in/vartikanand/" target="_blank">
-    <img src="https://raw.githubusercontent.com/maurodesouza/profile-readme-generator/master/src/assets/icons/social/instagram/default.svg" width="37" height="25" alt="instagram logo"  />
-  </a>
-  <img src="https://raw.githubusercontent.com/maurodesouza/profile-readme-generator/master/src/assets/icons/social/youtube/default.svg" width="37" height="25" alt="youtube logo"  />
-</div>
-
-###
-
 
 
 
