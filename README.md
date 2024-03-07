@@ -67,10 +67,6 @@ Fullstack Developer
 
 ###
 
-<img src="https://raw.githubusercontent.com/vartikanand/vartikanand/output/snake.svg" alt="Snake animation" />
-
-###
-
 
 
 ### Socials :
