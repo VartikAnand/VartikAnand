@@ -1,0 +1,61 @@
+<svg xmlns='http://www.w3.org/2000/svg' font-family="Consolas,'DejaVu Sans Mono',monospace" width='1120px' height='540px' font-size='16px'>
+<style>.key{fill:#ffffff;} .value{fill:#4169e1;} .cc{fill:#5a6ba8;} .add{fill:#6d8bff;} .del{fill:#f85149;} text,tspan{white-space:pre;} </style>
+<rect width='1120px' height='540px' fill='#0a1128' rx='15'/>
+<text x='15' y='24' fill='#ffffff' font-size='13px'>
+<tspan x='15' y='24'>                                                        </tspan>
+<tspan x='15' y='38'>+------------------------------------------------------+</tspan>
+<tspan x='15' y='52'>|                                                      |</tspan>
+<tspan x='15' y='66'>|                                                      |</tspan>
+<tspan x='15' y='80'>|                                                      |</tspan>
+<tspan x='15' y='94'>|                                                      |</tspan>
+<tspan x='15' y='108'>|                                                      |</tspan>
+<tspan x='15' y='122'>|                                                      |</tspan>
+<tspan x='15' y='136'>|                                                      |</tspan>
+<tspan x='15' y='150'>|                                                      |</tspan>
+<tspan x='15' y='164'>|                                                      |</tspan>
+<tspan x='15' y='178'>|               DROP  portrait.jpg  HERE               |</tspan>
+<tspan x='15' y='192'>|                                                      |</tspan>
+<tspan x='15' y='206'>|           (56 cols wide, cropped to face)            |</tspan>
+<tspan x='15' y='220'>|                                                      |</tspan>
+<tspan x='15' y='234'>|                                                      |</tspan>
+<tspan x='15' y='248'>|                                                      |</tspan>
+<tspan x='15' y='262'>|                                                      |</tspan>
+<tspan x='15' y='276'>|                                                      |</tspan>
+<tspan x='15' y='290'>|                                                      |</tspan>
+<tspan x='15' y='304'>|                                                      |</tspan>
+<tspan x='15' y='318'>|                                                      |</tspan>
+<tspan x='15' y='332'>|                                                      |</tspan>
+<tspan x='15' y='346'>|                                                      |</tspan>
+<tspan x='15' y='360'>|                                                      |</tspan>
+<tspan x='15' y='374'>|                                                      |</tspan>
+<tspan x='15' y='388'>|                                                      |</tspan>
+<tspan x='15' y='402'>|                                                      |</tspan>
+<tspan x='15' y='416'>|                                                      |</tspan>
+<tspan x='15' y='430'>|                                                      |</tspan>
+<tspan x='15' y='444'>+------------------------------------------------------+</tspan>
+</text>
+<text><tspan x='500' y='30' fill='#ffffff'>vartik@anand</tspan><tspan class='cc'> ------------------------------------</tspan></text>
+<text><tspan x='500' y='50'><tspan class="cc">. </tspan><tspan class="key">OS</tspan><tspan class="cc">:</tspan><tspan class="cc"> ..................... </tspan><tspan class="value">macOS - Linux - Windows</tspan></tspan></text>
+<text><tspan x='500' y='70'><tspan class="cc">. </tspan><tspan class="key">Host</tspan><tspan class="cc">:</tspan><tspan class="cc"> ................... </tspan><tspan class="value">Full-Stack Web &amp; Mobile Dev</tspan></tspan></text>
+<text><tspan x='500' y='90'><tspan class="cc">. </tspan><tspan class="key">Kernel</tspan><tspan class="cc">:</tspan><tspan class="cc"> ................. </tspan><tspan class="value">React - Next.js - Flutter</tspan></tspan></text>
+<text><tspan x='500' y='110'><tspan class="cc">. </tspan><tspan class="key">IDE</tspan><tspan class="cc">:</tspan><tspan class="cc"> .................... </tspan><tspan class="value">VSCode, Claude Code</tspan></tspan></text>
+<text><tspan x='500' y='130' class='cc'>. </tspan></text>
+<text><tspan x='500' y='150'><tspan class="cc">. </tspan><tspan class="key">Languages</tspan>.<tspan class="key">Web</tspan><tspan class="cc">:</tspan><tspan class="cc"> .......... </tspan><tspan class="value">TypeScript, JavaScript, Node.js</tspan></tspan></text>
+<text><tspan x='500' y='170'><tspan class="cc">. </tspan><tspan class="key">Languages</tspan>.<tspan class="key">Mobile</tspan><tspan class="cc">:</tspan><tspan class="cc"> ....... </tspan><tspan class="value">Flutter, Dart</tspan></tspan></text>
+<text><tspan x='500' y='190'><tspan class="cc">. </tspan><tspan class="key">Languages</tspan>.<tspan class="key">Backend</tspan><tspan class="cc">:</tspan><tspan class="cc"> ...... </tspan><tspan class="value">Firebase, Supabase</tspan></tspan></text>
+<text><tspan x='500' y='210'><tspan class="cc">. </tspan><tspan class="key">Styling</tspan><tspan class="cc">:</tspan><tspan class="cc"> ................ </tspan><tspan class="value">Tailwind CSS</tspan></tspan></text>
+<text><tspan x='500' y='230' class='cc'>. </tspan></text>
+<text><tspan x='500' y='250'><tspan class="cc">. </tspan><tspan class="key">Currently</tspan><tspan class="cc">:</tspan><tspan class="cc"> .............. </tspan><tspan class="value">Building LeanHive</tspan></tspan></text>
+<text><tspan x='500' y='270'><tspan class="cc">. </tspan><tspan class="key">Learning</tspan><tspan class="cc">:</tspan><tspan class="cc"> ............... </tspan><tspan class="value">Next.js, Flutter, Python</tspan></tspan></text>
+<text><tspan x='500' y='290' class='cc'>. </tspan></text>
+<text><tspan x='500' y='310' fill='#ffffff'>- Contact</tspan><tspan class='cc'> ---------------------------------------</tspan></text>
+<text><tspan x='500' y='330'><tspan class="cc">. </tspan><tspan class="key">Portfolio</tspan><tspan class="cc">:</tspan><tspan class="cc"> .............. </tspan><tspan class="value">vartik.vercel.app</tspan></tspan></text>
+<text><tspan x='500' y='350'><tspan class="cc">. </tspan><tspan class="key">GitHub</tspan><tspan class="cc">:</tspan><tspan class="cc"> ................. </tspan><tspan class="value">VartikAnand</tspan></tspan></text>
+<text><tspan x='500' y='370'><tspan class="cc">. </tspan><tspan class="key">LinkedIn</tspan><tspan class="cc">:</tspan><tspan class="cc"> ............... </tspan><tspan class="value">vartikanand</tspan></tspan></text>
+<text><tspan x='500' y='390'><tspan class="cc">. </tspan><tspan class="key">YouTube</tspan><tspan class="cc">:</tspan><tspan class="cc"> ................ </tspan><tspan class="value">@dev-vartik</tspan></tspan></text>
+<text><tspan x='500' y='410' class='cc'>. </tspan></text>
+<text><tspan x='500' y='430' fill='#ffffff'>- GitHub Stats</tspan><tspan class='cc'> ----------------------------------</tspan></text>
+<text><tspan x='500' y='450'><tspan class='cc'>. </tspan><tspan class='key'>Repos</tspan><tspan class='cc'> ..... </tspan><tspan class='value'>29</tspan><tspan class='cc'> | </tspan><tspan class='key'>Stars</tspan><tspan class='cc'> ..... </tspan><tspan class='value'>15</tspan><tspan class='cc'> | </tspan><tspan class='key'>Followers</tspan><tspan class='cc'> . </tspan><tspan class='value'>6</tspan></tspan></text>
+<text x='500' y='478' fill='#6d8bff'>vartik@github</text><text x='630' y='478' fill='#ffffff'>:~$</text>
+<rect x='670' y='465' width='10' height='17' fill='#6d8bff'><animate attributeName='opacity' values='1;1;0;0' dur='1.1s' keyTimes='0;0.5;0.5;1' repeatCount='indefinite'/></rect>
+</svg>
