@@ -248,6 +248,35 @@ def build_svg(theme_name):
         f'</filter>'
     )
     
+    # CRT monitor hum and text vibration keyframes
+    parts.append(
+        "<style>"
+        "/* CRT monitor flicker / hum */"
+        "@keyframes terminal-hum {"
+        "  0% { opacity: 0.97; }"
+        "  50% { opacity: 1.0; }"
+        "  100% { opacity: 0.98; }"
+        "}"
+        "/* Text typing jitter / shake */"
+        "@keyframes text-jitter {"
+        "  0% { transform: translate(0, 0); }"
+        "  10% { transform: translate(-0.3px, 0.3px); }"
+        "  20% { transform: translate(-0.3px, -0.3px); }"
+        "  30% { transform: translate(0.3px, 0.3px); }"
+        "  40% { transform: translate(0.3px, -0.3px); }"
+        "  50% { transform: translate(-0.3px, 0.3px); }"
+        "  60% { transform: translate(0.3px, 0.3px); }"
+        "  70% { transform: translate(-0.3px, -0.3px); }"
+        "  80% { transform: translate(0.3px, -0.3px); }"
+        "  90% { transform: translate(-0.3px, 0.3px); }"
+        "  100% { transform: translate(0, 0); }"
+        "}"
+        "text {"
+        "  animation: terminal-hum 0.15s infinite, text-jitter 0.25s infinite;"
+        "}"
+        "</style>"
+    )
+    
     # 3. Animation ClipPaths for Right-Panel Info Rows (Typing Effect)
     px = INFO_X
     info_y_start = card_y + top_h + 30
@@ -467,6 +496,16 @@ def build_svg(theme_name):
         # Indefinite blink after it settles
         f'<animate attributeName="opacity" values="1;1;0;0" dur="1.1s" '
         f'keyTimes="0;0.5;0.5;1" repeatCount="indefinite" begin="{final_start + line_dur:.3f}s"/>'
+        f'</rect>'
+    )
+    
+    # Glowing Laser Scanline Sweep across the Right-Panel Text
+    right_panel_w = card_w - (px - card_x) - 24
+    parts.append(
+        f'<rect x="{px}" y="{info_y_start}" width="{right_panel_w}" height="2" '
+        f'fill="url(#ascii-grad)" opacity="0.4" filter="url(#ascii-glow)">'
+        f'<animate attributeName="y" values="{info_y_start}; {info_y_start + info_height}; {info_y_start}" '
+        f'dur="6s" repeatCount="indefinite"/>'
         f'</rect>'
     )
     
