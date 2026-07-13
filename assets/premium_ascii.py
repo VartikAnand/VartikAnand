@@ -256,7 +256,7 @@ def build_svg(theme_name):
     
     # ASCII art reveal starts at 0s, runs for 1.2s
     # Right panel starts typing at 0.8s (overlapping)
-    line_dur = 0.15 # seconds per line
+    line_dur = 0.28 # seconds per line
     start_delay = 0.8
     
     # Reveal wipe for ASCII Art
@@ -350,6 +350,11 @@ def build_svg(theme_name):
     
     # 7. Left Panel - Glowing ASCII portrait (reveals top-to-bottom)
     ascii_y_start = card_y + top_h + 24
+    parts.append(f'<g>')
+    parts.append(
+        f'<animateTransform attributeName="transform" type="translate" '
+        f'values="0,0; 0,5; 0,0" dur="6s" repeatCount="indefinite"/>'
+    )
     parts.append(
         f'<text x="{card_x + 24}" y="{ascii_y_start}" fill="url(#ascii-grad)" '
         f'font-size="{ASCII_FS}px" font-family="Consolas, \'DejaVu Sans Mono\', monospace" '
@@ -361,6 +366,16 @@ def build_svg(theme_name):
         parts.append(f'<tspan x="{card_x + 24}" y="{y_offset}">{esc(row)}</tspan>')
         y_offset += ASCII_LH
     parts.append("</text>")
+    
+    # Glowing Laser Scanline Sweep across the ASCII portrait
+    parts.append(
+        f'<rect x="{card_x + 24}" y="{ascii_y_start}" width="{ASCII_COLS * ASCII_CW}" height="2" '
+        f'fill="url(#ascii-grad)" opacity="0.6" filter="url(#ascii-glow)">'
+        f'<animate attributeName="y" values="{ascii_y_start}; {ascii_y_start + ascii_height}; {ascii_y_start}" '
+        f'dur="6s" repeatCount="indefinite"/>'
+        f'</rect>'
+    )
+    parts.append("</g>")
     
     # 8. Right Panel - Terminal Info Showcase (individual typing lines & cursors)
     y = info_y_start
@@ -499,9 +514,9 @@ def console_typewriter():
         for char in plain_text:
             sys.stdout.write(char)
             sys.stdout.flush()
-            time.sleep(0.004)
+            time.sleep(0.008)
         sys.stdout.write("\n")
-        time.sleep(0.05)
+        time.sleep(0.08)
         
     # Prompt line
     sys.stdout.write("  \033[1;32mvartik@github\033[0m:~$ ")
