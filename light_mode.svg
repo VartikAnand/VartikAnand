@@ -1,61 +1,74 @@
-<svg xmlns='http://www.w3.org/2000/svg' font-family="Consolas,'DejaVu Sans Mono',monospace" width='1120px' height='540px' font-size='16px'>
-<style>.key{fill:#0a1128;} .value{fill:#4169e1;} .cc{fill:#8a97c4;} .add{fill:#2947b3;} .del{fill:#cf222e;} text,tspan{white-space:pre;} </style>
-<rect width='1120px' height='540px' fill='#ffffff' rx='15'/>
-<text x='15' y='24' fill='#0a1128' font-size='13px'>
-<tspan x='15' y='24'></tspan>
-<tspan x='15' y='38'>                     '~+__--?]]}[-:`</tspan>
-<tspan x='15' y='52'>                      lXWB8&amp;8B@$$$&amp;q/,</tspan>
-<tspan x='15' y='66'>                    .;[tUQJmW&amp;*&amp;@@$$@q~.^"</tspan>
-<tspan x='15' y='80'>                  `l[)//tYb*dCXJdWB@$Bm0L~</tspan>
-<tspan x='15' y='94'>             .,;!)nujfuUboOXnnucUm*%@$$Wc~`</tspan>
-<tspan x='15' y='108'>              "_(|}((/u0Lt|/tv0da*oW@@$aL]".</tspan>
-<tspan x='15' y='122'>                ^;_fjczr/fnYwkdqqwp%@@8&amp;BQ,</tspan>
-<tspan x='15' y='136'>              +xt}v0CCOZmmqbpqpqqqh0OM88%Bo)^.</tspan>
-<tspan x='15' y='150'>            ]LJ|](uc0qq0wwpkm0qqQXv{YQb*o*qU]`</tspan>
-<tspan x='15' y='164'>          ,JO(_-?{jz0wXXOwJJ]uCnOqmXt/wmcr/u0!</tspan>
-<tspan x='15' y='178'>         -pn_-]??[[:1f!upm]itr[iUpJX1}pOj__-xa|</tspan>
-<tspan x='15' y='192'>        ]a)_]?????-I_?^!-iI__ill[t__-xz]}[?]_}o/</tspan>
-<tspan x='15' y='206'>       IM(i]???????_~!'!l!!!ll!!lli!ln}-??-~]~-c:</tspan>
-<tspan x='15' y='220'>       0U.;]]]??-?(uLC';!!!!i_~!!!!I)j]-?]]?]!:{(</tspan>
-<tspan x='15' y='234'>      "n!^,"!+?1nLwbaWJIl!!i_]+!!IIxB@aX1_~i:`,if:</tspan>
-<tspan x='15' y='248'>      i|;^'...,fCwM$$$$j{!li~~+li|q$$$$$af^  ';~)+</tspan>
-<tspan x='15' y='262'>      +)~i'...'.I_1xCMo_)v)~ll-fYa$$B#pCcu- .l--{-</tspan>
-<tspan x='15' y='276'>      !|.'...'l,^IlII?/II_jJLQLuxzwZXnrxxxn+ `I!1+</tspan>
-<tspan x='15' y='290'>      ^j" ..`!~-~IIl!li;:Il_//{)//czvxxxxvz-   .t;</tspan>
-<tspan x='15' y='304'>       {~`;_}(vZmLf[iIl!lI;l!~-{fnnxxvJmhM8oLx]_)</tspan>
-<tspan x='15' y='318'>      .,l!+{(/LpwOwhbc]!l!!!i~{xxxYma8$$$$$&amp;WMoaU^</tspan>
-<tspan x='15' y='332'>       ~||({}1r0qqmZq%oY)_!+[)fnzw%BB$$@O)~?k88BU.</tspan>
-<tspan x='15' y='346'>       .]jjxxj|(vOqqmaaC0c{1rvXCUqW$$8O{l+;w%%$Q`</tspan>
-<tspan x='15' y='360'>        .?nvvzYXvnXmwqo)?/jxzcnffbaWwJZo0QM@$$Y'</tspan>
-<tspan x='15' y='374'>          !xUUJCQOLOqwk0-!~?}]]1JqkaW$$&amp;0Lh$o1</tspan>
-<tspan x='15' y='388'>           ']z0ZZmqbhpmhX]+~~]rOkmW$$%wuC#*x^</tspan>
-<tspan x='15' y='402'>             `?cmbhao#hkax/}nOdbk8$BkYUbqt"</tspan>
-<tspan x='15' y='416'>                :}vmo&amp;%oWmZLqbbka$$or/|!</tspan>
-<tspan x='15' y='430'>                   .:-)tcfxuunxrtt];'</tspan>
-<tspan x='15' y='444'></tspan>
+<svg xmlns="http://www.w3.org/2000/svg" font-family="system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Consolas, monospace" width="1120px" height="675px" font-size="16px">
+<defs>
+<radialGradient id="bg-grad" cx="50%" cy="50%" r="70%"><stop offset="0%" stop-color="#eff6ff" stop-opacity="0.8"/><stop offset="100%" stop-color="#f8fafc" stop-opacity="1"/></radialGradient>
+<linearGradient id="card-border" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#3b82f6"/><stop offset="50%" stop-color="#6366f1"/><stop offset="100%" stop-color="#4f46e5"/></linearGradient>
+<linearGradient id="ascii-grad" x1="0%" y1="0%" x2="0%" y2="100%"><stop offset="0%" stop-color="#3b82f6"/><stop offset="50%" stop-color="#6366f1"/><stop offset="100%" stop-color="#8b5cf6"/></linearGradient>
+<filter id="card-shadow" x="-10%" y="-10%" width="120%" height="120%"><feDropShadow dx="0" dy="12" stdDeviation="16" flood-color="#000000" flood-opacity="0.25"/></filter>
+<filter id="ascii-glow" x="-20%" y="-20%" width="140%" height="140%"><feGaussianBlur stdDeviation="1" result="blur" /><feMerge><feMergeNode in="blur" /><feMergeNode in="SourceGraphic" /></feMerge></filter>
+</defs>
+<rect width="100%" height="100%" fill="url(#bg-grad)"/>
+<circle cx="200" cy="337" r="150" fill="#bfdbfe" opacity="0.3" filter="url(#ascii-glow)"/><circle cx="920" cy="287" r="180" fill="#ccfbf1" opacity="0.3" filter="url(#ascii-glow)"/>
+<rect x="40" y="40" width="1040" height="595" fill="rgba(255, 255, 255, 0.75)" rx="20" stroke="url(#card-border)" stroke-width="1.5" filter="url(#card-shadow)" />
+<path d="M 40 60 A 20 20 0 0 1 60 40 L 1060 40 A 20 20 0 0 1 1080 60 L 1080 85 L 40 85 Z" fill="rgba(241, 245, 249, 0.9)" />
+<circle cx="65" cy="62.5" r="6" fill="#ff5f56"/><circle cx="85" cy="62.5" r="6" fill="#ffbd2e"/><circle cx="105" cy="62.5" r="6" fill="#27c93f"/>
+<text x="560.0" y="68" text-anchor="middle" fill="#64748b" font-size="14px" font-family="Consolas, monospace" font-weight="bold">vartik@terminal:~</text>
+<line x1="40" y1="85" x2="1080" y2="85" stroke="url(#card-border)" stroke-width="1" opacity="0.3"/>
+<text x="64" y="109" fill="url(#ascii-grad)" font-size="13px" font-family="Consolas, 'DejaVu Sans Mono', monospace" filter="url(#ascii-glow)" xml:space="preserve" letter-spacing="0">
+<tspan x="64" y="109">$$$$$$$$$$$$$$$$$$$&amp;QaM&amp;&amp;&amp;8%%B@$$$$$$$$$$$$$$$$$$$$$$$</tspan>
+<tspan x="64" y="123">$$$$$$$$$$$$$$$$$$$@-"!-___?[(rvUfX&amp;$$$$$$$$$$$$$$$$$$</tspan>
+<tspan x="64" y="137">$$$$$$$$$$$$$$$$$8p0| !rzvvcXzXYUc)}w$$$$$$$$$$$$$$$$$</tspan>
+<tspan x="64" y="151">$$$$$$$$$$$$$$$$$@O+ ";+?-1xrtnXYUJv]upL(W$$$$$$$$$$$$</tspan>
+<tspan x="64" y="165">$$$$$$$$$$$B%%&amp;hJ{,",,;l?/f1_i_(ncXYn})]J$$$$$$$$$$$$$</tspan>
+<tspan x="64" y="179">$$$$$$$$$$$p(I,``;lI:l_((-il!+-[)ruczc11zQpB$$$$$$$$$$</tspan>
+<tspan x="64" y="193">$$$$$$$$$$$$8qr-l`"":i]+,":I-1(//|xuun(irkW@$$$$$$$$$$</tspan>
+<tspan x="64" y="207">$$$$$$$$$$$$$$$#).li~~lli_[((11{{/xxnrnx|w$$$%$$$$$$$$</tspan>
+<tspan x="64" y="221">$$$$$$$$$$$$%hY{:i??]{11{{())(11{};{trxrf11||p$$$$$$$$</tspan>
+<tspan x="64" y="235">$$$$$$$$$$@hU}^ `I_}))-[1)/-?{}]-~i-?)|)(-!to$$$$$$$$$</tspan>
+<tspan x="64" y="249">$$$$$$$$$8Z("  .`Il![ltUz+I"~!:{t|+`~1?,'`1Lo$$$$$$$$$</tspan>
+<tspan x="64" y="263">$$$$$$$$WC-  .....  l ;}1"`:^ ./x]r"+]i,.  +cb$$$$$$$$</tspan>
+<tspan x="64" y="277">$$$$$$$WC~ .......  ^           .. '?^ .... !jw$$$$$$$</tspan>
+<tspan x="64" y="291">$$$$$$BO1 ......  '"l.             `" ... .. `-&amp;$$$$$$</tspan>
+<tspan x="64" y="305">$$$$$$q}'  ....."i]{t-     '`.    Ij1;  ...  ."Y$$$$$$</tspan>
+<tspan x="64" y="319">$$$$$$f`      "?1/xXJh].  ..'.  '1LQLJj!.     `1@$$$$$</tspan>
+<tspan x="64" y="333">$$$$$$)'      ."I{xXCo{;l.    `!ZWbZCzr[,     '?B$$$$$</tspan>
+<tspan x="64" y="347">$$$$$$)'           'i{` ,~~I!__icwY(-!IIl"    '?B$$$$$</tspan>
+<tspan x="64" y="361">$$$$$$x^     .       ..   ,-_;";l+~lIIII!I    `1@$$$$$</tspan>
+<tspan x="64" y="375">$$$$$$w:   ',i[}[I'          .^:l!!Il~[|xj~:` "Y$$$$$$</tspan>
+<tspan x="64" y="389">$$$$$o}'  `""I})(tznl        `Illi?jUJL00LYn(}+}a$$$$$</tspan>
+<tspan x="64" y="403">$$$$$*; ^"^`^I[1{[{r0fl`   '^;li}XZOLLY/{_}nxn|io$$$$$</tspan>
+<tspan x="64" y="417">$$$$$$al^;II;""i}11[nJ}?!`^;li-?|JOCJf;; :fnnf-h$$$$$$</tspan>
+<tspan x="64" y="431">$$$$$$$o-"l!i~~ll~}1)J;"lll~+~ll(UUr1)1[|Xccj{h$$$$$$$</tspan>
+<tspan x="64" y="445">$$$$$$$$8j;!+_-?]-?1}xt   `"`'`?)xncC0u)|cX/jW$$$$$$$$</tspan>
+<tspan x="64" y="459">$$$$$$$$$$p}!_][}{)|)}v[.   .:]({XLQY1!{cnfm$$$$$$$$$$</tspan>
+<tspan x="64" y="473">$$$$$$$$$$$Bmt-?{)||t|fU;,`I])(/zLUt~?xczm%$$$$$$$$$$$</tspan>
+<tspan x="64" y="487">$$$$$$$$$$$$$$oCf{{(trjJ]]-{)))/YJ|!/JZ*@$$$$$$$$$$$$$</tspan>
+<tspan x="64" y="501">$$$$$$$$$$$$$$$$$WdQcnru]]]][}1fXUZa8$$$$$$$$$$$$$$$$$</tspan>
+<tspan x="64" y="515">$$$$$$$$$$$$$$$$$$$$$$B&amp;M*aa*#&amp;B@$$$$$$$$$$$$$$$$$$$$$</tspan>
 </text>
-<text><tspan x='500' y='30' fill='#0a1128'>vartik@anand</tspan><tspan class='cc'> ------------------------------------</tspan></text>
-<text><tspan x='500' y='50'><tspan class="cc">. </tspan><tspan class="key">OS</tspan><tspan class="cc">:</tspan><tspan class="cc"> ..................... </tspan><tspan class="value">macOS - Linux - Windows</tspan></tspan></text>
-<text><tspan x='500' y='70'><tspan class="cc">. </tspan><tspan class="key">Host</tspan><tspan class="cc">:</tspan><tspan class="cc"> ................... </tspan><tspan class="value">Full-Stack Web &amp; Mobile Dev</tspan></tspan></text>
-<text><tspan x='500' y='90'><tspan class="cc">. </tspan><tspan class="key">Kernel</tspan><tspan class="cc">:</tspan><tspan class="cc"> ................. </tspan><tspan class="value">React - Next.js - Flutter</tspan></tspan></text>
-<text><tspan x='500' y='110'><tspan class="cc">. </tspan><tspan class="key">IDE</tspan><tspan class="cc">:</tspan><tspan class="cc"> .................... </tspan><tspan class="value">VSCode, Claude Code</tspan></tspan></text>
-<text><tspan x='500' y='130' class='cc'>. </tspan></text>
-<text><tspan x='500' y='150'><tspan class="cc">. </tspan><tspan class="key">Languages</tspan>.<tspan class="key">Web</tspan><tspan class="cc">:</tspan><tspan class="cc"> .......... </tspan><tspan class="value">TypeScript, JavaScript, Node.js</tspan></tspan></text>
-<text><tspan x='500' y='170'><tspan class="cc">. </tspan><tspan class="key">Languages</tspan>.<tspan class="key">Mobile</tspan><tspan class="cc">:</tspan><tspan class="cc"> ....... </tspan><tspan class="value">Flutter, Dart</tspan></tspan></text>
-<text><tspan x='500' y='190'><tspan class="cc">. </tspan><tspan class="key">Languages</tspan>.<tspan class="key">Backend</tspan><tspan class="cc">:</tspan><tspan class="cc"> ...... </tspan><tspan class="value">Firebase, Supabase</tspan></tspan></text>
-<text><tspan x='500' y='210'><tspan class="cc">. </tspan><tspan class="key">Styling</tspan><tspan class="cc">:</tspan><tspan class="cc"> ................ </tspan><tspan class="value">Tailwind CSS</tspan></tspan></text>
-<text><tspan x='500' y='230' class='cc'>. </tspan></text>
-<text><tspan x='500' y='250'><tspan class="cc">. </tspan><tspan class="key">Currently</tspan><tspan class="cc">:</tspan><tspan class="cc"> .............. </tspan><tspan class="value">Building LeanHive</tspan></tspan></text>
-<text><tspan x='500' y='270'><tspan class="cc">. </tspan><tspan class="key">Learning</tspan><tspan class="cc">:</tspan><tspan class="cc"> ............... </tspan><tspan class="value">Next.js, Flutter, Python</tspan></tspan></text>
-<text><tspan x='500' y='290' class='cc'>. </tspan></text>
-<text><tspan x='500' y='310' fill='#0a1128'>- Contact</tspan><tspan class='cc'> ---------------------------------------</tspan></text>
-<text><tspan x='500' y='330'><tspan class="cc">. </tspan><tspan class="key">Portfolio</tspan><tspan class="cc">:</tspan><tspan class="cc"> .............. </tspan><tspan class="value">vartik.vercel.app</tspan></tspan></text>
-<text><tspan x='500' y='350'><tspan class="cc">. </tspan><tspan class="key">GitHub</tspan><tspan class="cc">:</tspan><tspan class="cc"> ................. </tspan><tspan class="value">VartikAnand</tspan></tspan></text>
-<text><tspan x='500' y='370'><tspan class="cc">. </tspan><tspan class="key">LinkedIn</tspan><tspan class="cc">:</tspan><tspan class="cc"> ............... </tspan><tspan class="value">vartikanand</tspan></tspan></text>
-<text><tspan x='500' y='390'><tspan class="cc">. </tspan><tspan class="key">YouTube</tspan><tspan class="cc">:</tspan><tspan class="cc"> ................ </tspan><tspan class="value">@dev-vartik</tspan></tspan></text>
-<text><tspan x='500' y='410' class='cc'>. </tspan></text>
-<text><tspan x='500' y='430' fill='#0a1128'>- GitHub Stats</tspan><tspan class='cc'> ----------------------------------</tspan></text>
-<text><tspan x='500' y='450'><tspan class='cc'>. </tspan><tspan class='key'>Repos</tspan><tspan class='cc'> ..... </tspan><tspan class='value'>29</tspan><tspan class='cc'> | </tspan><tspan class='key'>Stars</tspan><tspan class='cc'> ..... </tspan><tspan class='value'>15</tspan><tspan class='cc'> | </tspan><tspan class='key'>Followers</tspan><tspan class='cc'> . </tspan><tspan class='value'>6</tspan></tspan></text>
-<text x='500' y='478' fill='#2947b3'>vartik@github</text><text x='630' y='478' fill='#0a1128'>:~$</text>
-<rect x='670' y='465' width='10' height='17' fill='#2947b3'><animate attributeName='opacity' values='1;1;0;0' dur='1.1s' keyTimes='0;0.5;0.5;1' repeatCount='indefinite'/></rect>
+<text font-family="Consolas, 'DejaVu Sans Mono', monospace" font-size="15px" fill="#0f172a">
+<tspan x="520" y="115" fill="#0f172a" font-weight="bold">vartik@anand</tspan><tspan fill="#94a3b8"> ----------------------------------------</tspan>
+<tspan x="520" y="135"><tspan fill="#94a3b8">. </tspan><tspan fill="#334155">OS</tspan><tspan fill="#94a3b8">:</tspan><tspan fill="#94a3b8"> ..................... </tspan><tspan fill="#2563eb">macOS · Linux · Windows</tspan></tspan>
+<tspan x="520" y="155"><tspan fill="#94a3b8">. </tspan><tspan fill="#334155">Host</tspan><tspan fill="#94a3b8">:</tspan><tspan fill="#94a3b8"> ................... </tspan><tspan fill="#2563eb">Full-Stack Web &amp; Mobile Dev</tspan></tspan>
+<tspan x="520" y="175"><tspan fill="#94a3b8">. </tspan><tspan fill="#334155">Kernel</tspan><tspan fill="#94a3b8">:</tspan><tspan fill="#94a3b8"> ................. </tspan><tspan fill="#2563eb">React · Next.js · Flutter</tspan></tspan>
+<tspan x="520" y="195"><tspan fill="#94a3b8">. </tspan><tspan fill="#334155">IDE</tspan><tspan fill="#94a3b8">:</tspan><tspan fill="#94a3b8"> .................... </tspan><tspan fill="#2563eb">VSCode, Claude Code</tspan></tspan>
+<tspan x="520" y="215" fill="#94a3b8">. </tspan>
+<tspan x="520" y="235"><tspan fill="#94a3b8">. </tspan><tspan fill="#334155">Languages</tspan>.<tspan fill="#334155">Web</tspan><tspan fill="#94a3b8">:</tspan><tspan fill="#94a3b8"> .......... </tspan><tspan fill="#2563eb">TypeScript, JavaScript, Node.js</tspan></tspan>
+<tspan x="520" y="255"><tspan fill="#94a3b8">. </tspan><tspan fill="#334155">Languages</tspan>.<tspan fill="#334155">Mobile</tspan><tspan fill="#94a3b8">:</tspan><tspan fill="#94a3b8"> ....... </tspan><tspan fill="#2563eb">Flutter, Dart</tspan></tspan>
+<tspan x="520" y="275"><tspan fill="#94a3b8">. </tspan><tspan fill="#334155">Languages</tspan>.<tspan fill="#334155">Backend</tspan><tspan fill="#94a3b8">:</tspan><tspan fill="#94a3b8"> ...... </tspan><tspan fill="#2563eb">Firebase, Supabase, NestJS</tspan></tspan>
+<tspan x="520" y="295"><tspan fill="#94a3b8">. </tspan><tspan fill="#334155">Styling</tspan><tspan fill="#94a3b8">:</tspan><tspan fill="#94a3b8"> ................ </tspan><tspan fill="#2563eb">Tailwind CSS</tspan></tspan>
+<tspan x="520" y="315" fill="#94a3b8">. </tspan>
+<tspan x="520" y="335"><tspan fill="#94a3b8">. </tspan><tspan fill="#334155">Currently</tspan><tspan fill="#94a3b8">:</tspan><tspan fill="#94a3b8"> .............. </tspan><tspan fill="#2563eb">Building LeanHive</tspan></tspan>
+<tspan x="520" y="355"><tspan fill="#94a3b8">. </tspan><tspan fill="#334155">Learning</tspan><tspan fill="#94a3b8">:</tspan><tspan fill="#94a3b8"> ............... </tspan><tspan fill="#2563eb">Next.js, Flutter, Python</tspan></tspan>
+<tspan x="520" y="375" fill="#94a3b8">. </tspan>
+<tspan x="520" y="395" fill="#0f172a" font-weight="bold">- Contact</tspan><tspan fill="#94a3b8"> -------------------------------------------</tspan>
+<tspan x="520" y="415"><tspan fill="#94a3b8">. </tspan><tspan fill="#334155">Portfolio</tspan><tspan fill="#94a3b8">:</tspan><tspan fill="#94a3b8"> .............. </tspan><tspan fill="#2563eb">vartik.vercel.app</tspan></tspan>
+<tspan x="520" y="435"><tspan fill="#94a3b8">. </tspan><tspan fill="#334155">GitHub</tspan><tspan fill="#94a3b8">:</tspan><tspan fill="#94a3b8"> ................. </tspan><tspan fill="#2563eb">VartikAnand</tspan></tspan>
+<tspan x="520" y="455"><tspan fill="#94a3b8">. </tspan><tspan fill="#334155">LinkedIn</tspan><tspan fill="#94a3b8">:</tspan><tspan fill="#94a3b8"> ............... </tspan><tspan fill="#2563eb">vartikanand</tspan></tspan>
+<tspan x="520" y="475"><tspan fill="#94a3b8">. </tspan><tspan fill="#334155">YouTube</tspan><tspan fill="#94a3b8">:</tspan><tspan fill="#94a3b8"> ................ </tspan><tspan fill="#2563eb">@dev-vartik</tspan></tspan>
+<tspan x="520" y="495" fill="#94a3b8">. </tspan>
+<tspan x="520" y="515" fill="#0f172a" font-weight="bold">- GitHub Stats</tspan><tspan fill="#94a3b8"> --------------------------------------</tspan>
+<tspan x="520" y="535"><tspan fill="#94a3b8">. </tspan><tspan fill="#334155">Repos</tspan><tspan fill="#94a3b8"> ..... </tspan><tspan fill="#2563eb" font-weight="bold">29</tspan><tspan fill="#94a3b8"> | </tspan><tspan fill="#334155">Stars</tspan><tspan fill="#94a3b8"> ..... </tspan><tspan fill="#2563eb" font-weight="bold">15</tspan><tspan fill="#94a3b8"> | </tspan><tspan fill="#334155">Followers</tspan><tspan fill="#94a3b8"> . </tspan><tspan fill="#2563eb" font-weight="bold">6</tspan></tspan>
+<tspan x="520" y="563" fill="#059669" font-weight="bold">vartik@github</tspan><tspan fill="#0f172a">:~$</tspan>
+</text>
+<rect x="690" y="550" width="10" height="17" fill="#059669"><animate attributeName="opacity" values="1;1;0;0" dur="1.1s" keyTimes="0;0.5;0.5;1" repeatCount="indefinite"/></rect>
 </svg>
