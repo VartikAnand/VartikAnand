@@ -305,28 +305,31 @@ def build_svg(theme_name):
     line_dur = 0.28 # seconds per line
     start_delay = 0.8
     
-    # Reveal wipe for ASCII Art (loops indefinitely over a 6-second cycle)
+    # Reveal wipe for ASCII Art (loops indefinitely over a 8-second cycle)
     parts.append(
         f'<clipPath id="ascii-wipe">'
         f'<rect x="{card_x + 24}" y="{card_y + top_h}" width="500" height="0">'
         f'<animate attributeName="height" values="0;{ascii_height + 40};{ascii_height + 40};0" '
-        f'keyTimes="0;0.35;0.9;1" begin="0s" dur="6s" repeatCount="indefinite" calcMode="linear"/>'
+        f'keyTimes="0;0.3125;0.9375;1" begin="0s" dur="8s" repeatCount="indefinite" calcMode="linear"/>'
         f'</rect>'
         f'</clipPath>'
     )
     
-    # Generate clip-paths for info lines
+    # Generate clip-paths for info lines (looping over a 8-second cycle)
     for i, (kind, payload) in enumerate(INFO):
         plain_text = get_plain_text(kind, payload, n_dash)
         text_w = len(plain_text) * CW
         line_start = start_delay + i * line_dur
+        t1 = line_start
+        t2 = line_start + line_dur
+        t3 = 7.5
         
         parts.append(
             f'<clipPath id="clip-row-{i}">'
             f'<rect x="{px}" y="{y - 15}" width="0" height="24">'
-            f'<animate attributeName="width" from="0" to="{text_w:.1f}" '
-            f'begin="{line_start:.3f}s" dur="{line_dur:.3f}s" '
-            f'fill="freeze" calcMode="linear"/>'
+            f'<animate attributeName="width" values="0;0;{text_w:.1f};{text_w:.1f};0" '
+            f'keyTimes="0;{t1/8.0:.4f};{t2/8.0:.4f};{t3/8.0:.4f};1" '
+            f'dur="8s" repeatCount="indefinite" calcMode="linear"/>'
             f'</rect>'
             f'</clipPath>'
         )
@@ -457,13 +460,18 @@ def build_svg(theme_name):
         parts.append(body)
         parts.append("</text>")
         
-        # Active typing block cursor for this row
+        # Active typing block cursor for this row (looping over a 8-second cycle)
+        t1 = line_start
+        t2 = line_start + line_dur
+        t3 = 7.5
         parts.append(
             f'<rect y="{y - 13}" width="{CW}" height="17" fill="{t["add"]}" opacity="0">'
-            f'<animate attributeName="x" from="{px}" to="{px + text_w:.1f}" '
-            f'begin="{line_start:.3f}s" dur="{line_dur:.3f}s" fill="freeze" calcMode="linear"/>'
-            f'<set attributeName="opacity" to="1" begin="{line_start:.3f}s"/>'
-            f'<set attributeName="opacity" to="0" begin="{line_start + line_dur:.3f}s"/>'
+            f'<animate attributeName="x" values="{px}; {px}; {px + text_w:.1f}; {px + text_w:.1f}; {px}" '
+            f'keyTimes="0; {t1/8.0:.4f}; {t2/8.0:.4f}; {t3/8.0:.4f}; 1" '
+            f'dur="8s" repeatCount="indefinite" calcMode="linear"/>'
+            f'<animate attributeName="opacity" values="0; 0; 1; 0; 0; 0" '
+            f'keyTimes="0; {(t1 - 0.01)/8.0:.4f}; {t1/8.0:.4f}; {t2/8.0:.4f}; {t3/8.0:.4f}; 1" '
+            f'dur="8s" repeatCount="indefinite" calcMode="discrete"/>'
             f'</rect>'
         )
         y += line_spacing
@@ -476,13 +484,17 @@ def build_svg(theme_name):
         f'<text x="{px}" y="{prompt_y}" font-family="Consolas, \'DejaVu Sans Mono\', monospace" '
         f'font-size="15px" fill="{t["text"]}" clip-path="url(#clip-prompt)">'
     )
-    # Clip for prompt line
+    # Clip for prompt line (looping over a 8-second cycle)
     prompt_w = 17 * CW
+    t1 = final_start
+    t2 = final_start + line_dur
+    t3 = 7.5
     parts.append(
         f'<clipPath id="clip-prompt">'
         f'<rect x="{px}" y="{prompt_y - 15}" width="0" height="24">'
-        f'<animate attributeName="width" from="0" to="{prompt_w:.1f}" '
-        f'begin="{final_start:.3f}s" dur="{line_dur:.3f}s" fill="freeze"/>'
+        f'<animate attributeName="width" values="0;0;{prompt_w:.1f};{prompt_w:.1f};0" '
+        f'keyTimes="0;{t1/8.0:.4f};{t2/8.0:.4f};{t3/8.0:.4f};1" '
+        f'dur="8s" repeatCount="indefinite" calcMode="linear"/>'
         f'</rect>'
         f'</clipPath>'
     )
@@ -492,18 +504,19 @@ def build_svg(theme_name):
     )
     parts.append("</text>")
     
-    # Prompt active cursor: sweeps during prompt typing, then blinks indefinitely
+    # Prompt active cursor: sweeps during prompt typing, then blinks, and resets in a loop
     cur_x_start = px
     cur_x_end = px + 17 * CW
     parts.append(
         f'<rect y="{prompt_y - 13}" width="{CW}" height="17" fill="{t["add"]}" opacity="0">'
-        # Sweep sweep
-        f'<animate attributeName="x" from="{cur_x_start}" to="{cur_x_end:.1f}" '
-        f'begin="{final_start:.3f}s" dur="{line_dur:.3f}s" fill="freeze"/>'
-        f'<set attributeName="opacity" to="1" begin="{final_start:.3f}s"/>'
-        # Indefinite blink after it settles
-        f'<animate attributeName="opacity" values="1;1;0;0" dur="1.1s" '
-        f'keyTimes="0;0.5;0.5;1" repeatCount="indefinite" begin="{final_start + line_dur:.3f}s"/>'
+        # Sweep sweep x coordinate loop
+        f'<animate attributeName="x" values="{cur_x_start};{cur_x_start};{cur_x_end};{cur_x_end};{cur_x_start}" '
+        f'keyTimes="0;{t1/8.0:.4f};{t2/8.0:.4f};{t3/8.0:.4f};1" '
+        f'dur="8s" repeatCount="indefinite" calcMode="linear"/>'
+        # Discrete opacity loop to only show cursor when prompt is active
+        f'<animate attributeName="opacity" values="0;0;1;1;0;0" '
+        f'keyTimes="0;{(t1-0.01)/8.0:.4f};{t1/8.0:.4f};{t3/8.0:.4f};{t3/8.0:.4f};1" '
+        f'dur="8s" repeatCount="indefinite" calcMode="discrete"/>'
         f'</rect>'
     )
     
