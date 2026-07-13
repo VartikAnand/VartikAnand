@@ -229,6 +229,8 @@ def build_svg(theme_name):
         f'<stop offset="100%" stop-color="{t["ascii_gradient"][2] if len(t["ascii_gradient"]) > 2 else t["ascii_gradient"][1]}">'
         f'<animate attributeName="stop-color" values="{t["ascii_gradient"][2] if len(t["ascii_gradient"]) > 2 else t["ascii_gradient"][1]}; {t["ascii_gradient"][0]}; {t["ascii_gradient"][1]}; {t["ascii_gradient"][2] if len(t["ascii_gradient"]) > 2 else t["ascii_gradient"][1]}" dur="4s" repeatCount="indefinite" />'
         f'</stop>'
+        f'<animate attributeName="y1" values="0%;100%;0%" dur="6s" repeatCount="indefinite" />'
+        f'<animate attributeName="y2" values="100%;200%;100%" dur="6s" repeatCount="indefinite" />'
         f'</linearGradient>'
     )
     # Card shadow
@@ -303,12 +305,12 @@ def build_svg(theme_name):
     line_dur = 0.28 # seconds per line
     start_delay = 0.8
     
-    # Reveal wipe for ASCII Art
+    # Reveal wipe for ASCII Art (loops indefinitely over a 6-second cycle)
     parts.append(
         f'<clipPath id="ascii-wipe">'
         f'<rect x="{card_x + 24}" y="{card_y + top_h}" width="500" height="0">'
-        f'<animate attributeName="height" from="0" to="{ascii_height + 40}" '
-        f'begin="0s" dur="1.2s" fill="freeze" calcMode="linear"/>'
+        f'<animate attributeName="height" values="0;{ascii_height + 40};{ascii_height + 40};0" '
+        f'keyTimes="0;0.35;0.9;1" begin="0s" dur="6s" repeatCount="indefinite" calcMode="linear"/>'
         f'</rect>'
         f'</clipPath>'
     )

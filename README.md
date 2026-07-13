@@ -1,8 +1,8 @@
 <p align="center">
   <a href="https://github.com/VartikAnand">
     <picture>
-      <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/VartikAnand/VartikAnand/main/dark_mode.svg">
-      <img alt="Vartik Anand's Terminal Card" src="https://raw.githubusercontent.com/VartikAnand/VartikAnand/main/light_mode.svg" width="100%">
+      <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/VartikAnand/VartikAnand/main/dark_mode.svg?v=3">
+      <img alt="Vartik Anand's Terminal Card" src="https://raw.githubusercontent.com/VartikAnand/VartikAnand/main/light_mode.svg?v=3" width="100%">
     </picture>
   </a>
 </p>
