@@ -90,8 +90,8 @@
 ### 📊 GitHub Analytics
 
 <p align="center">
-  <img src="https://github-readme-stats.vercel.app/api?username=VartikAnand&show_icons=true&bg_color=030712&title_color=f472b6&text_color=94a3b8&icon_color=3b82f6&hide_border=true" height="170" alt="GitHub Stats" />
-  <img src="https://github-readme-stats.vercel.app/api/top-langs/?username=VartikAnand&layout=compact&bg_color=030712&title_color=f472b6&text_color=94a3b8&icon_color=3b82f6&hide_border=true" height="170" alt="Top Languages" />
+  <img src="https://github-stats-extended.vercel.app/api?username=VartikAnand&show_icons=true&bg_color=030712&title_color=f472b6&text_color=94a3b8&icon_color=3b82f6&hide_border=true" height="170" alt="GitHub Stats" />
+  <img src="https://github-stats-extended.vercel.app/api/top-langs/?username=VartikAnand&layout=compact&bg_color=030712&title_color=f472b6&text_color=94a3b8&icon_color=3b82f6&hide_border=true" height="170" alt="Top Languages" />
 </p>
 
 ---
