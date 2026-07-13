@@ -206,17 +206,29 @@ def build_svg(theme_name):
     # Card Border Gradient
     parts.append(
         f'<linearGradient id="card-border" x1="0%" y1="0%" x2="100%" y2="100%">'
-        f'<stop offset="0%" stop-color="{t["border_gradient"][0]}"/>'
-        f'<stop offset="50%" stop-color="{t["border_gradient"][1]}"/>'
-        f'<stop offset="100%" stop-color="{t["border_gradient"][2] if len(t["border_gradient"]) > 2 else t["border_gradient"][1]}"/>'
+        f'<stop offset="0%" stop-color="{t["border_gradient"][0]}">'
+        f'<animate attributeName="stop-color" values="{t["border_gradient"][0]}; {t["border_gradient"][1]}; {t["border_gradient"][2] if len(t["border_gradient"]) > 2 else t["border_gradient"][0]}; {t["border_gradient"][0]}" dur="6s" repeatCount="indefinite" />'
+        f'</stop>'
+        f'<stop offset="50%" stop-color="{t["border_gradient"][1]}">'
+        f'<animate attributeName="stop-color" values="{t["border_gradient"][1]}; {t["border_gradient"][2] if len(t["border_gradient"]) > 2 else t["border_gradient"][0]}; {t["border_gradient"][0]}; {t["border_gradient"][1]}" dur="6s" repeatCount="indefinite" />'
+        f'</stop>'
+        f'<stop offset="100%" stop-color="{t["border_gradient"][2] if len(t["border_gradient"]) > 2 else t["border_gradient"][1]}">'
+        f'<animate attributeName="stop-color" values="{t["border_gradient"][2] if len(t["border_gradient"]) > 2 else t["border_gradient"][1]}; {t["border_gradient"][0]}; {t["border_gradient"][1]}; {t["border_gradient"][2] if len(t["border_gradient"]) > 2 else t["border_gradient"][1]}" dur="6s" repeatCount="indefinite" />'
+        f'</stop>'
         f'</linearGradient>'
     )
     # ASCII Art Gradient
     parts.append(
         f'<linearGradient id="ascii-grad" x1="0%" y1="0%" x2="0%" y2="100%">'
-        f'<stop offset="0%" stop-color="{t["ascii_gradient"][0]}"/>'
-        f'<stop offset="50%" stop-color="{t["ascii_gradient"][1]}"/>'
-        f'<stop offset="100%" stop-color="{t["ascii_gradient"][2] if len(t["ascii_gradient"]) > 2 else t["ascii_gradient"][1]}"/>'
+        f'<stop offset="0%" stop-color="{t["ascii_gradient"][0]}">'
+        f'<animate attributeName="stop-color" values="{t["ascii_gradient"][0]}; {t["ascii_gradient"][1]}; {t["ascii_gradient"][2] if len(t["ascii_gradient"]) > 2 else t["ascii_gradient"][0]}; {t["ascii_gradient"][0]}" dur="4s" repeatCount="indefinite" />'
+        f'</stop>'
+        f'<stop offset="50%" stop-color="{t["ascii_gradient"][1]}">'
+        f'<animate attributeName="stop-color" values="{t["ascii_gradient"][1]}; {t["ascii_gradient"][2] if len(t["ascii_gradient"]) > 2 else t["ascii_gradient"][0]}; {t["ascii_gradient"][0]}; {t["ascii_gradient"][1]}" dur="4s" repeatCount="indefinite" />'
+        f'</stop>'
+        f'<stop offset="100%" stop-color="{t["ascii_gradient"][2] if len(t["ascii_gradient"]) > 2 else t["ascii_gradient"][1]}">'
+        f'<animate attributeName="stop-color" values="{t["ascii_gradient"][2] if len(t["ascii_gradient"]) > 2 else t["ascii_gradient"][1]}; {t["ascii_gradient"][0]}; {t["ascii_gradient"][1]}; {t["ascii_gradient"][2] if len(t["ascii_gradient"]) > 2 else t["ascii_gradient"][1]}" dur="4s" repeatCount="indefinite" />'
+        f'</stop>'
         f'</linearGradient>'
     )
     # Card shadow
@@ -281,13 +293,25 @@ def build_svg(theme_name):
     
     if theme_name == "dark":
         parts.append(
-            f'<circle cx="200" cy="{H//2}" r="150" fill="#4f46e5" opacity="0.15" filter="url(#ascii-glow)"/>'
-            f'<circle cx="920" cy="{H//2 - 50}" r="180" fill="#06b6d4" opacity="0.1" filter="url(#ascii-glow)"/>'
+            f'<circle cx="200" cy="{H//2}" r="150" fill="#4f46e5" opacity="0.15" filter="url(#ascii-glow)">'
+            f'<animate attributeName="r" values="130;170;130" dur="6s" repeatCount="indefinite"/>'
+            f'<animate attributeName="opacity" values="0.1;0.2;0.1" dur="6s" repeatCount="indefinite"/>'
+            f'</circle>'
+            f'<circle cx="920" cy="{H//2 - 50}" r="180" fill="#06b6d4" opacity="0.1" filter="url(#ascii-glow)">'
+            f'<animate attributeName="r" values="160;200;160" dur="6s" repeatCount="indefinite"/>'
+            f'<animate attributeName="opacity" values="0.07;0.15;0.07" dur="6s" repeatCount="indefinite"/>'
+            f'</circle>'
         )
     else:
         parts.append(
-            f'<circle cx="200" cy="{H//2}" r="150" fill="#bfdbfe" opacity="0.3" filter="url(#ascii-glow)"/>'
-            f'<circle cx="920" cy="{H//2 - 50}" r="180" fill="#ccfbf1" opacity="0.3" filter="url(#ascii-glow)"/>'
+            f'<circle cx="200" cy="{H//2}" r="150" fill="#bfdbfe" opacity="0.3" filter="url(#ascii-glow)">'
+            f'<animate attributeName="r" values="130;170;130" dur="6s" repeatCount="indefinite"/>'
+            f'<animate attributeName="opacity" values="0.2;0.4;0.2" dur="6s" repeatCount="indefinite"/>'
+            f'</circle>'
+            f'<circle cx="920" cy="{H//2 - 50}" r="180" fill="#ccfbf1" opacity="0.3" filter="url(#ascii-glow)">'
+            f'<animate attributeName="r" values="160;200;160" dur="6s" repeatCount="indefinite"/>'
+            f'<animate attributeName="opacity" values="0.2;0.4;0.2" dur="6s" repeatCount="indefinite"/>'
+            f'</circle>'
         )
 
     # 5. Main Glassmorphic Terminal Card
