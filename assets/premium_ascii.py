@@ -237,14 +237,28 @@ def build_svg(theme_name):
         f'<feDropShadow dx="0" dy="12" stdDeviation="16" flood-color="#000000" flood-opacity="0.25"/>'
         f'</filter>'
     )
-    # Glow filter for ASCII Text
+    # Glow & Glitch filter for ASCII Text
     parts.append(
         f'<filter id="ascii-glow" x="-20%" y="-20%" width="140%" height="140%">'
-        f'<feGaussianBlur stdDeviation="1" result="blur" />'
+        f'<feTurbulence type="fractalNoise" baseFrequency="0.04 0.9" numOctaves="1" result="noise">'
+        f'<animate attributeName="baseFrequency" values="0.04 0.9; 0.04 0.8; 0.04 0.9" dur="0.8s" repeatCount="indefinite"/>'
+        f'</feTurbulence>'
+        f'<feDisplacementMap in="SourceGraphic" in2="noise" scale="1.5" xChannelSelector="R" yChannelSelector="G" result="glitched"/>'
+        f'<feGaussianBlur in="glitched" stdDeviation="1" result="blur" />'
         f'<feMerge>'
         f'<feMergeNode in="blur" />'
-        f'<feMergeNode in="SourceGraphic" />'
+        f'<feMergeNode in="glitched" />'
         f'</feMerge>'
+        f'</filter>'
+    )
+    
+    # Text-only glitch filter (no glow, keeps text sharp)
+    parts.append(
+        f'<filter id="text-glitch" x="-10%" y="-10%" width="120%" height="120%">'
+        f'<feTurbulence type="fractalNoise" baseFrequency="0.04 0.9" numOctaves="1" result="noise">'
+        f'<animate attributeName="baseFrequency" values="0.04 0.9; 0.04 0.8; 0.04 0.9" dur="0.8s" repeatCount="indefinite"/>'
+        f'</feTurbulence>'
+        f'<feDisplacementMap in="SourceGraphic" in2="noise" scale="0.8" xChannelSelector="R" yChannelSelector="G"/>'
         f'</filter>'
     )
     
@@ -273,6 +287,7 @@ def build_svg(theme_name):
         "}"
         "text {"
         "  animation: terminal-hum 0.15s infinite, text-jitter 0.25s infinite;"
+        "  filter: url(#text-glitch);"
         "}"
         "</style>"
     )
@@ -395,15 +410,6 @@ def build_svg(theme_name):
         parts.append(f'<tspan x="{card_x + 24}" y="{y_offset}">{esc(row)}</tspan>')
         y_offset += ASCII_LH
     parts.append("</text>")
-    
-    # Glowing Laser Scanline Sweep across the ASCII portrait
-    parts.append(
-        f'<rect x="{card_x + 24}" y="{ascii_y_start}" width="{ASCII_COLS * ASCII_CW}" height="2" '
-        f'fill="url(#ascii-grad)" opacity="0.6" filter="url(#ascii-glow)">'
-        f'<animate attributeName="y" values="{ascii_y_start}; {ascii_y_start + ascii_height}; {ascii_y_start}" '
-        f'dur="6s" repeatCount="indefinite"/>'
-        f'</rect>'
-    )
     parts.append("</g>")
     
     # 8. Right Panel - Terminal Info Showcase (individual typing lines & cursors)
@@ -499,15 +505,7 @@ def build_svg(theme_name):
         f'</rect>'
     )
     
-    # Glowing Laser Scanline Sweep across the Right-Panel Text
-    right_panel_w = card_w - (px - card_x) - 24
-    parts.append(
-        f'<rect x="{px}" y="{info_y_start}" width="{right_panel_w}" height="2" '
-        f'fill="url(#ascii-grad)" opacity="0.4" filter="url(#ascii-glow)">'
-        f'<animate attributeName="y" values="{info_y_start}; {info_y_start + info_height}; {info_y_start}" '
-        f'dur="6s" repeatCount="indefinite"/>'
-        f'</rect>'
-    )
+
     
     parts.append("</svg>")
     return "\n".join(parts)
