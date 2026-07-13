@@ -1,10 +1,12 @@
 #!/usr/bin/env python3
 """
 premium_ascii.py — Generate a super premium, modern, and clean portfolio header banner.
-Features a glassmorphic macOS terminal window, neon-gradient ASCII art, and dashboard stats.
+Features a glassmorphic macOS terminal window, neon-gradient ASCII art, and dashboard stats
+with real-time typing animations (SMIL in SVG and live print in python).
 """
 import os
-import math
+import sys
+import time
 from PIL import Image, ImageOps, ImageEnhance
 
 # ---- 1. ASCII portrait configuration ----------------------------------
@@ -82,7 +84,7 @@ INFO = [
 ]
 
 VALUE_COL = 26
-CW = 10.0
+CW = 9.0 # Character width advance for 15px font
 INFO_X = 520
 W = 1120
 
@@ -99,7 +101,7 @@ THEMES = {
         "cc": "#475569", # Slate-600
         "add": "#34d399", # Emerald-400
         "dele": "#f87171",
-        "ascii_gradient": ["#818cf8", "#c084fc", "#f472b6"], # Indigo -> Purple -> Pink gradient
+        "ascii_gradient": ["#818cf8", "#c084fc", "#f472b6"], # Indigo -> Purple -> Pink
         "glow_color": "#818cf8",
         "title_text": "#94a3b8"
     },
@@ -138,6 +140,25 @@ def kv_line(keys, value, t):
             f'<tspan fill="{t["cc"]}"> {"." * dots} </tspan>'
             f'<tspan fill="{t["value"]}">{esc(value)}</tspan>')
 
+def get_plain_text(kind, payload, n_dash):
+    if kind == "header":
+        dash = "-" * max(4, n_dash - len(payload))
+        return f"{payload} -{dash}-"
+    elif kind == "section":
+        dash = "-" * max(4, n_dash - len(payload) - 2)
+        return f"- {payload} -{dash}-"
+    elif kind == "blank":
+        return ". "
+    elif kind == "kv":
+        keys, value = payload
+        key_txt = ".".join(keys)
+        prefix_len = 2 + len(key_txt) + 1
+        dots = leader(prefix_len)
+        return f". {key_txt}: {'.' * dots} {value}"
+    elif kind == "stats1":
+        return ". Repos ..... 29 | Stars ..... 15 | Followers . 6"
+    return ""
+
 def build_svg(theme_name):
     t = THEMES[theme_name]
     parts = []
@@ -149,9 +170,8 @@ def build_svg(theme_name):
     line_spacing = 20
     
     ascii_height = len(ASCII_ROWS) * ASCII_LH
-    # Spacing for right-panel content
-    right_panel_lines_count = len(INFO) + 2 # Add terminal prompt line
-    info_height = right_panel_lines_count * line_spacing + 30
+    right_panel_lines_count = len(INFO)
+    info_height = right_panel_lines_count * line_spacing + 40
     
     content_height = max(ascii_height, info_height)
     card_h = top_h + content_height + 40
@@ -215,12 +235,50 @@ def build_svg(theme_name):
         f'</feMerge>'
         f'</filter>'
     )
+    
+    # 3. Animation ClipPaths for Right-Panel Info Rows (Typing Effect)
+    px = INFO_X
+    info_y_start = card_y + top_h + 30
+    y = info_y_start
+    n_dash = int((W - px - 60) / CW) - 4
+    
+    # ASCII art reveal starts at 0s, runs for 1.2s
+    # Right panel starts typing at 0.8s (overlapping)
+    line_dur = 0.15 # seconds per line
+    start_delay = 0.8
+    
+    # Reveal wipe for ASCII Art
+    parts.append(
+        f'<clipPath id="ascii-wipe">'
+        f'<rect x="{card_x + 24}" y="{card_y + top_h}" width="500" height="0">'
+        f'<animate attributeName="height" from="0" to="{ascii_height + 40}" '
+        f'begin="0s" dur="1.2s" fill="freeze" calcMode="linear"/>'
+        f'</rect>'
+        f'</clipPath>'
+    )
+    
+    # Generate clip-paths for info lines
+    for i, (kind, payload) in enumerate(INFO):
+        plain_text = get_plain_text(kind, payload, n_dash)
+        text_w = len(plain_text) * CW
+        line_start = start_delay + i * line_dur
+        
+        parts.append(
+            f'<clipPath id="clip-row-{i}">'
+            f'<rect x="{px}" y="{y - 15}" width="0" height="24">'
+            f'<animate attributeName="width" from="0" to="{text_w:.1f}" '
+            f'begin="{line_start:.3f}s" dur="{line_dur:.3f}s" '
+            f'fill="freeze" calcMode="linear"/>'
+            f'</rect>'
+            f'</clipPath>'
+        )
+        y += line_spacing
+        
     parts.append("</defs>")
     
-    # 3. Ambient Background
+    # 4. Ambient Background
     parts.append(f'<rect width="100%" height="100%" fill="url(#bg-grad)"/>')
     
-    # Glowing Ambient Orbs behind the Card
     if theme_name == "dark":
         parts.append(
             f'<circle cx="200" cy="{H//2}" r="150" fill="#4f46e5" opacity="0.15" filter="url(#ascii-glow)"/>'
@@ -232,14 +290,14 @@ def build_svg(theme_name):
             f'<circle cx="920" cy="{H//2 - 50}" r="180" fill="#ccfbf1" opacity="0.3" filter="url(#ascii-glow)"/>'
         )
 
-    # 4. Main Glassmorphic Terminal Card
+    # 5. Main Glassmorphic Terminal Card
     parts.append(
         f'<rect x="{card_x}" y="{card_y}" width="{card_w}" height="{card_h}" '
         f'fill="{t["bg_card"]}" rx="20" stroke="url(#card-border)" stroke-width="1.5" '
         f'filter="url(#card-shadow)" />'
     )
     
-    # 5. Terminal Header Top-Bar
+    # 6. Terminal Header Top-Bar
     parts.append(
         f'<path d="M {card_x} {card_y + 20} '
         f'A 20 20 0 0 1 {card_x + 20} {card_y} '
@@ -250,32 +308,29 @@ def build_svg(theme_name):
         f'fill="{t["top_bar"]}" />'
     )
     
-    # macOS style Window Buttons
     parts.append(
         f'<circle cx="{card_x + 25}" cy="{card_y + 22.5}" r="6" fill="#ff5f56"/>'
         f'<circle cx="{card_x + 45}" cy="{card_y + 22.5}" r="6" fill="#ffbd2e"/>'
         f'<circle cx="{card_x + 65}" cy="{card_y + 22.5}" r="6" fill="#27c93f"/>'
     )
-    # Terminal Title Text
     parts.append(
         f'<text x="{card_x + card_w/2}" y="{card_y + 28}" text-anchor="middle" '
         f'fill="{t["title_text"]}" font-size="14px" font-family="Consolas, monospace" font-weight="bold">'
         f'vartik@terminal:~'
         f'</text>'
     )
-    
-    # Separation line below the top bar
     parts.append(
         f'<line x1="{card_x}" y1="{card_y + top_h}" x2="{card_x + card_w}" y2="{card_y + top_h}" '
         f'stroke="url(#card-border)" stroke-width="1" opacity="0.3"/>'
     )
     
-    # 6. Left Panel - Glowing ASCII portrait
+    # 7. Left Panel - Glowing ASCII portrait (reveals top-to-bottom)
     ascii_y_start = card_y + top_h + 24
     parts.append(
         f'<text x="{card_x + 24}" y="{ascii_y_start}" fill="url(#ascii-grad)" '
         f'font-size="{ASCII_FS}px" font-family="Consolas, \'DejaVu Sans Mono\', monospace" '
-        f'filter="url(#ascii-glow)" xml:space="preserve" letter-spacing="0">'
+        f'filter="url(#ascii-glow)" xml:space="preserve" letter-spacing="0" '
+        f'clip-path="url(#ascii-wipe)">'
     )
     y_offset = ascii_y_start
     for row in ASCII_ROWS:
@@ -283,34 +338,34 @@ def build_svg(theme_name):
         y_offset += ASCII_LH
     parts.append("</text>")
     
-    # 7. Right Panel - Terminal Info Showcase
-    px = INFO_X
-    info_y_start = card_y + top_h + 30
+    # 8. Right Panel - Terminal Info Showcase (individual typing lines & cursors)
     y = info_y_start
-    
-    n_dash = int((W - px - 60) / CW) - 4
-    
-    parts.append(
-        f'<text font-family="Consolas, \'DejaVu Sans Mono\', monospace" '
-        f'font-size="15px" fill="{t["text"]}">'
-    )
-    
-    for kind, payload in INFO:
+    for i, (kind, payload) in enumerate(INFO):
+        plain_text = get_plain_text(kind, payload, n_dash)
+        text_w = len(plain_text) * CW
+        line_start = start_delay + i * line_dur
+        
+        # Render the specific line
+        parts.append(
+            f'<text x="{px}" y="{y}" font-family="Consolas, \'DejaVu Sans Mono\', monospace" '
+            f'font-size="15px" fill="{t["text"]}" clip-path="url(#clip-row-{i})">'
+        )
+        
         if kind == "header":
             dash = "-" * max(4, n_dash - len(payload))
-            body = (f'<tspan x="{px}" y="{y}" fill="{t["text"]}" font-weight="bold">{esc(payload)}</tspan>'
+            body = (f'<tspan fill="{t["text"]}" font-weight="bold">{esc(payload)}</tspan>'
                     f'<tspan fill="{t["cc"]}"> -{dash}-</tspan>')
         elif kind == "section":
             dash = "-" * max(4, n_dash - len(payload) - 2)
-            body = (f'<tspan x="{px}" y="{y}" fill="{t["text"]}" font-weight="bold">- {esc(payload)}</tspan>'
+            body = (f'<tspan fill="{t["text"]}" font-weight="bold">- {esc(payload)}</tspan>'
                     f'<tspan fill="{t["cc"]}"> -{dash}-</tspan>')
         elif kind == "blank":
-            body = f'<tspan x="{px}" y="{y}" fill="{t["cc"]}">. </tspan>'
+            body = f'<tspan fill="{t["cc"]}">. </tspan>'
         elif kind == "kv":
             keys, value = payload
-            body = f'<tspan x="{px}" y="{y}">{kv_line(keys, value, t)}</tspan>'
+            body = kv_line(keys, value, t)
         elif kind == "stats1":
-            body = (f'<tspan x="{px}" y="{y}"><tspan fill="{t["cc"]}">. </tspan>'
+            body = (f'<tspan fill="{t["cc"]}">. </tspan>'
                     f'<tspan fill="{t["key"]}">Repos</tspan>'
                     f'<tspan fill="{t["cc"]}"> ..... </tspan>'
                     f'<tspan fill="{t["value"]}" font-weight="bold">29</tspan>'
@@ -321,35 +376,127 @@ def build_svg(theme_name):
                     f'<tspan fill="{t["cc"]}"> | </tspan>'
                     f'<tspan fill="{t["key"]}">Followers</tspan>'
                     f'<tspan fill="{t["cc"]}"> . </tspan>'
-                    f'<tspan fill="{t["value"]}" font-weight="bold">6</tspan></tspan>')
-        
+                    f'<tspan fill="{t["value"]}" font-weight="bold">6</tspan>')
+                    
         parts.append(body)
+        parts.append("</text>")
+        
+        # Active typing block cursor for this row
+        parts.append(
+            f'<rect y="{y - 13}" width="{CW}" height="17" fill="{t["add"]}" opacity="0">'
+            f'<animate attributeName="x" from="{px}" to="{px + text_w:.1f}" '
+            f'begin="{line_start:.3f}s" dur="{line_dur:.3f}s" fill="freeze" calcMode="linear"/>'
+            f'<set attributeName="opacity" to="1" begin="{line_start:.3f}s"/>'
+            f'<set attributeName="opacity" to="0" begin="{line_start + line_dur:.3f}s"/>'
+            f'</rect>'
+        )
         y += line_spacing
         
-    # Blinking prompt + cursor at the bottom
+    # Blinking prompt + cursor at the bottom (shows after all rows are typed)
     prompt_y = y + 8
+    final_start = start_delay + len(INFO) * line_dur
+    
     parts.append(
-        f'<tspan x="{px}" y="{prompt_y}" fill="{t["add"]}" font-weight="bold">vartik@github</tspan>'
+        f'<text x="{px}" y="{prompt_y}" font-family="Consolas, \'DejaVu Sans Mono\', monospace" '
+        f'font-size="15px" fill="{t["text"]}" clip-path="url(#clip-prompt)">'
+    )
+    # Clip for prompt line
+    prompt_w = 17 * CW
+    parts.append(
+        f'<clipPath id="clip-prompt">'
+        f'<rect x="{px}" y="{prompt_y - 15}" width="0" height="24">'
+        f'<animate attributeName="width" from="0" to="{prompt_w:.1f}" '
+        f'begin="{final_start:.3f}s" dur="{line_dur:.3f}s" fill="freeze"/>'
+        f'</rect>'
+        f'</clipPath>'
+    )
+    parts.append(
+        f'<tspan fill="{t["add"]}" font-weight="bold">vartik@github</tspan>'
         f'<tspan fill="{t["text"]}">:~$</tspan>'
     )
     parts.append("</text>")
     
-    # Interactive cursor rect
-    cur_x = px + 17 * int(CW)
+    # Prompt active cursor: sweeps during prompt typing, then blinks indefinitely
+    cur_x_start = px
+    cur_x_end = px + 17 * CW
     parts.append(
-        f'<rect x="{cur_x}" y="{prompt_y - 13}" width="{int(CW)}" height="17" '
-        f'fill="{t["add"]}">'
+        f'<rect y="{prompt_y - 13}" width="{CW}" height="17" fill="{t["add"]}" opacity="0">'
+        # Sweep sweep
+        f'<animate attributeName="x" from="{cur_x_start}" to="{cur_x_end:.1f}" '
+        f'begin="{final_start:.3f}s" dur="{line_dur:.3f}s" fill="freeze"/>'
+        f'<set attributeName="opacity" to="1" begin="{final_start:.3f}s"/>'
+        # Indefinite blink after it settles
         f'<animate attributeName="opacity" values="1;1;0;0" dur="1.1s" '
-        f'keyTimes="0;0.5;0.5;1" repeatCount="indefinite"/></rect>'
+        f'keyTimes="0;0.5;0.5;1" repeatCount="indefinite" begin="{final_start + line_dur:.3f}s"/>'
+        f'</rect>'
     )
     
     parts.append("</svg>")
     return "\n".join(parts)
 
-# Generate and save the premium SVGs
+# Print terminal typewriter animation to console
+def console_typewriter():
+    n_dash = int((W - INFO_X - 60) / CW) - 4
+    
+    print("\n\033[1;36mInitializing Premium Portfolio Terminal...\033[0m")
+    time.sleep(0.5)
+    
+    # 1. Print ASCII Art
+    print("\033[1;35mLoading ASCII portrait...\033[0m")
+    for row in ASCII_ROWS:
+        sys.stdout.write("  " + row + "\n")
+        sys.stdout.flush()
+        time.sleep(0.015)
+        
+    print("\033[1;32mConnection established.\033[0m\n")
+    time.sleep(0.3)
+    
+    # 2. Type out Right Panel
+    for kind, payload in INFO:
+        plain_text = get_plain_text(kind, payload, n_dash)
+        
+        # Style console output based on row type
+        if kind == "header" or kind == "section":
+            styled_text = f"\033[1;37m{plain_text}\033[0m"
+        elif kind == "blank":
+            styled_text = "  ."
+        elif kind == "stats1":
+            styled_text = f"  \033[90m. \033[37mRepos \033[90m..... \033[1;34m29 \033[90m| \033[37mStars \033[90m..... \033[1;34m15 \033[90m| \033[37mFollowers \033[90m. \033[1;34m6\033[0m"
+        else:
+            # key value line formatting for terminal
+            keys, value = payload
+            key_txt = ".".join(keys)
+            prefix_len = 2 + len(key_txt) + 1
+            dots = leader(prefix_len)
+            styled_text = f"  \033[90m. \033[33m{key_txt}\033[90m: {'.' * dots} \033[1;34m{value}\033[0m"
+            
+        # Character-by-character print
+        sys.stdout.write("  ")
+        for char in plain_text:
+            sys.stdout.write(char)
+            sys.stdout.flush()
+            time.sleep(0.004)
+        sys.stdout.write("\n")
+        time.sleep(0.05)
+        
+    # Prompt line
+    sys.stdout.write("  \033[1;32mvartik@github\033[0m:~$ ")
+    sys.stdout.flush()
+    time.sleep(0.2)
+    prompt_text = "neofetch"
+    for char in prompt_text:
+        sys.stdout.write(char)
+        sys.stdout.flush()
+        time.sleep(0.1)
+    sys.stdout.write("\n\n")
+
 if __name__ == "__main__":
+    # Generate the premium SVGs
     for name in ("dark", "light"):
         out_filename = f"{name}_mode.svg"
         with open(out_filename, "w", encoding="utf-8") as f:
             f.write(build_svg(name))
         print("Generated and wrote:", out_filename)
+        
+    # Trigger terminal typewriter presentation
+    console_typewriter()
