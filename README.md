@@ -1,114 +1,65 @@
+<h1 align="center">Hey <img src="https://raw.githubusercontent.com/SP-XD/SP-XD/refs/heads/main/images/Developer.gif" height="30px" width="30px"> I'm Vartik Anand</h1>
+
+
+<img src="https://i.pinimg.com/originals/42/b4/22/42b4229a9ec3145edaa895b2415dd720.gif" alt="Banner" width="100%" />
+
+## 📌 About Me
+- 💡 <em>✏️ A sentence about you and what you do.</em>
+
+
+## 📊 GitHub Stats & Trophies
 <p align="center">
-  <a href="https://github.com/VartikAnand">
-    <picture>
-      <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/VartikAnand/VartikAnand/main/dark_mode.svg?v=3">
-      <img alt="Vartik Anand's Terminal Card" src="https://raw.githubusercontent.com/VartikAnand/VartikAnand/main/light_mode.svg?v=3" width="100%">
-    </picture>
-  </a>
+  <img src="https://www.gitskins.com/api/section/stats?username=vartikanand&theme=github-dark&mode=dark" alt="vartikanand's GitHub Stats" width="49%" />
+  <img src="https://streak-stats.demolab.com/?user=vartikanand&theme=nightowl&hide_border=true&cache_seconds=86400" alt="vartikanand's GitHub Streak" width="49%" />
 </p>
-
-# ⚡ VARTIK ANAND
-<p align="left">
-  <strong>Full-Stack Web & Mobile Architect · SaaS Product Builder</strong>
-</p>
-
-> 💡 *"I don't just write code. I engineer scalable, high-performance digital products from the ground up."*
-
----
-
-### 🕹️ Select Your Profile Mode:
-
-* **`💻 Developer Mode`** : Focuses on engineering patterns, languages, frameworks, and architecture.
-* **`🚀 Founder Mode`** : Dedicated to SaaS products, startups, building [LeanHive](https://github.com/VartikAnand), and shipping fast.
-* **`📺 Content Mode`** : Highlighting developer guides, coding tutorials, and technical insights.
-
----
-
-### 🛠️ Tech Stack & Core Skills
 
 <p align="center">
-  <a href="https://skillicons.dev">
-    <img src="https://skillicons.dev/icons?i=ts,js,python,dart,java,cpp,react,nextjs,vue,nestjs,nodejs,postgres,supabase,firebase,flutter,tailwind,git,vscode&perline=9" alt="Vartik's Tech Stack" />
-  </a>
+  <img src="https://www.gitskins.com/api/section/stack?username=vartikanand&theme=github-dark&mode=dark" alt="Top Languages" />
 </p>
-
----
-
-### 🏆 GitHub Achievements
-
 <p align="center">
-  <a href="https://github.com/ryo-ma/github-profile-trophy">
-    <img src="https://github-profile-trophy.vercel.app/?username=VartikAnand&theme=darkhub&no-background=true&no-border=true&column=7&margin-w=10" alt="GitHub Trophies" />
-  </a>
+  <img src="https://www.gitskins.com/api/section/highlights?username=vartikanand&theme=github-dark&mode=dark" alt="Vartik Anand's GitHub Trophies" />
 </p>
-
----
-
-### 📂 Featured Products & Engineering Vaults
-
-<table width="100%">
-  <tr>
-    <td width="50%" valign="top">
-      <h3>🐝 LeanHive</h3>
-      <p>A collaborative SaaS startup platform built to accelerate developer productivity, cloud integration, and team workflows.</p>
-      <p>
-        <img src="https://img.shields.io/badge/Status-Building-38bdf8?style=flat-square" alt="Status">
-        <img src="https://img.shields.io/badge/Stack-Next.js%20%7C%20Postgres-blue?style=flat-square" alt="Stack">
-      </p>
-    </td>
-    <td width="50%" valign="top">
-      <h3>📈 Adaptive Management System (AMS)</h3>
-      <p>Enterprise-ready, scaleable multi-tenant SaaS application constructed for adaptive organizational management and metrics.</p>
-      <p>
-        <img src="https://img.shields.io/badge/Status-Stable-10b981?style=flat-square" alt="Status">
-        <img src="https://img.shields.io/badge/Stack-NestJS%20%7C%20Prisma%20%7C%20Postgres-violet?style=flat-square" alt="Stack">
-      </p>
-    </td>
-  </tr>
-  <tr>
-    <td width="50%" valign="top">
-      <h3>🖼️ WallKit</h3>
-      <p>A modern, native wallpaper discovery and application client designed and built in Flutter for Android & iOS.</p>
-      <p>
-        <img src="https://img.shields.io/badge/Status-Stable-10b981?style=flat-square" alt="Status">
-        <img src="https://img.shields.io/badge/Stack-Flutter%20%7C%20Dart-02569B?style=flat-square" alt="Stack">
-      </p>
-    </td>
-    <td width="50%" valign="top">
-      <h3>⚡ JavaScript Mastery Vault</h3>
-      <p>A comprehensive vault of advanced JavaScript concepts, design patterns, core references, and interview guides.</p>
-      <p>
-        <img src="https://img.shields.io/badge/Status-Reference-a855f7?style=flat-square" alt="Status">
-        <img src="https://img.shields.io/badge/Stack-JavaScript%20(ES6%2B)-yellow?style=flat-square" alt="Stack">
-      </p>
-    </td>
-  </tr>
-</table>
-
----
-
-### 📊 GitHub Analytics
-
 <p align="center">
-  <img src="https://github-stats-extended.vercel.app/api?username=VartikAnand&show_icons=true&bg_color=030712&title_color=f472b6&text_color=94a3b8&icon_color=3b82f6&hide_border=true" height="170" alt="GitHub Stats" />
-  <img src="https://github-stats-extended.vercel.app/api/top-langs/?username=VartikAnand&layout=compact&bg_color=030712&title_color=f472b6&text_color=94a3b8&icon_color=3b82f6&hide_border=true" height="170" alt="Top Languages" />
+  <img height="280em" src="https://www.gitskins.com/api/section/heatmap?username=vartikanand&theme=github-dark&mode=dark" alt="vartikanand's Activity Graph" />
 </p>
 
----
 
-### 🔗 Connect & Collaborate
 
-<p align="center">
-  <a href="https://dev-vartik.vercel.app">
-    <img src="https://img.shields.io/badge/Portfolio-dev--vartik.vercel.app-4169e1?style=for-the-badge&logo=vercel&logoColor=white" alt="Portfolio" />
-  </a>
-  <a href="https://linkedin.com/in/vartikanand">
-    <img src="https://img.shields.io/badge/LinkedIn-vartikanand-0A66C2?style=for-the-badge&logo=linkedin&logoColor=white" alt="LinkedIn" />
-  </a>
-  <a href="https://youtube.com/@dev-vartik">
-    <img src="https://img.shields.io/badge/YouTube-@dev--vartik-FF0000?style=for-the-badge&logo=youtube&logoColor=white" alt="YouTube" />
-  </a>
-  <a href="mailto:mailvartik@gmail.com">
-    <img src="https://img.shields.io/badge/Email-mailvartik@gmail.com-D14836?style=for-the-badge&logo=gmail&logoColor=white" alt="Email" />
-  </a>
-</p>
+
+## 🛠️ Languages & Tools
+
+> ## Programming Languages
+<p align="center"><img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/javascript/javascript-original.svg" alt="JavaScript" width="48" height="48" style="margin: 4px;" /> <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/typescript/typescript-original.svg" alt="TypeScript" width="48" height="48" style="margin: 4px;" /> <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/python/python-original.svg" alt="Python" width="48" height="48" style="margin: 4px;" /> <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/java/java-original.svg" alt="Java" width="48" height="48" style="margin: 4px;" /> <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/cplusplus/cplusplus-original.svg" alt="C++" width="48" height="48" style="margin: 4px;" /> <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/php/php-original.svg" alt="PHP" width="48" height="48" style="margin: 4px;" /></p>
+
+> ## Frontend
+<p align="center"><img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/react/react-original.svg" alt="React" width="48" height="48" style="margin: 4px;" /> <img src="https://cdn.worldvectorlogo.com/logos/nextjs-2.svg" alt="Next.js" width="48" height="48" style="margin: 4px;" /> <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/html5/html5-original.svg" alt="HTML5" width="48" height="48" style="margin: 4px;" /> <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/css3/css3-original.svg" alt="CSS3" width="48" height="48" style="margin: 4px;" /> <img src="https://www.vectorlogo.zone/logos/tailwindcss/tailwindcss-icon.svg" alt="Tailwind CSS" width="48" height="48" style="margin: 4px;" /> <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/bootstrap/bootstrap-plain.svg" alt="Bootstrap" width="48" height="48" style="margin: 4px;" /></p>
+
+> ## Backend
+<p align="center"><img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/nodejs/nodejs-original.svg" alt="Node.js" width="48" height="48" style="margin: 4px;" /> <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/express/express-original.svg" alt="Express.js" width="48" height="48" style="margin: 4px;" /></p>
+
+> ## Database
+<p align="center"><img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/mysql/mysql-original.svg" alt="MySQL" width="48" height="48" style="margin: 4px;" /> <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/postgresql/postgresql-original.svg" alt="PostgreSQL" width="48" height="48" style="margin: 4px;" /> <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/mongodb/mongodb-original.svg" alt="MongoDB" width="48" height="48" style="margin: 4px;" /> <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/redis/redis-original.svg" alt="Redis" width="48" height="48" style="margin: 4px;" /> <img src="https://www.vectorlogo.zone/logos/sqlite/sqlite-icon.svg" alt="SQLite" width="48" height="48" style="margin: 4px;" /></p>
+
+> ## DevOps & Cloud
+<p align="center"><img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/docker/docker-original.svg" alt="Docker" width="48" height="48" style="margin: 4px;" /> <img src="https://www.vectorlogo.zone/logos/kubernetes/kubernetes-icon.svg" alt="Kubernetes" width="48" height="48" style="margin: 4px;" /> <img src="https://www.vectorlogo.zone/logos/amazon_aws/amazon_aws-icon.svg" alt="AWS" width="48" height="48" style="margin: 4px;" /> <img src="https://www.vectorlogo.zone/logos/google_cloud/google_cloud-icon.svg" alt="Google Cloud" width="48" height="48" style="margin: 4px;" /> <img src="https://www.vectorlogo.zone/logos/microsoft_azure/microsoft_azure-icon.svg" alt="Azure" width="48" height="48" style="margin: 4px;" /> <img src="https://www.vectorlogo.zone/logos/jenkins/jenkins-icon.svg" alt="Jenkins" width="48" height="48" style="margin: 4px;" /></p>
+
+> ## Tools
+<p align="center"><img src="https://www.vectorlogo.zone/logos/git-scm/git-scm-icon.svg" alt="Git" width="48" height="48" style="margin: 4px;" /> <img src="https://www.vectorlogo.zone/logos/visualstudio_code/visualstudio_code-icon.svg" alt="VS Code" width="48" height="48" style="margin: 4px;" /> <img src="https://www.vectorlogo.zone/logos/figma/figma-icon.svg" alt="Figma" width="48" height="48" style="margin: 4px;" /> <img src="https://www.vectorlogo.zone/logos/getpostman/getpostman-icon.svg" alt="Postman" width="48" height="48" style="margin: 4px;" /> <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/webpack/webpack-original.svg" alt="Webpack" width="48" height="48" style="margin: 4px;" /> <img src="https://www.vectorlogo.zone/logos/vitejsdev/vitejsdev-icon.svg" alt="Vite" width="48" height="48" style="margin: 4px;" /></p>
+
+
+## 🔗 Connect with Me
+<p align="center"><a href="https://www.linkedin.com/in/your-handle" target="_blank"><img src="https://raw.githubusercontent.com/gauravghongde/social-icons/9d939e1c5b7ea4a24ac39c3e4631970c0aa1b920/SVG/Color/LinkedIN.svg" alt="LinkedIN" width="40" height="40" style="margin: 0 8px;"/></a> <a href="mailto:you@example.com" target="_blank"><img src="https://raw.githubusercontent.com/gauravghongde/social-icons/9d939e1c5b7ea4a24ac39c3e4631970c0aa1b920/SVG/Color/Gmail.svg" alt="Gmail" width="40" height="40" style="margin: 0 8px;"/></a></p>
+
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="https://www.gitskins.com/api/section/heatmap?username=vartikanand&theme=github-dark&mode=dark&style=snake" />
+  <source media="(prefers-color-scheme: light)" srcset="https://www.gitskins.com/api/section/heatmap?username=vartikanand&theme=github-dark&mode=dark&style=snake" />
+  <img alt="github-snake" src="https://www.gitskins.com/api/section/heatmap?username=vartikanand&theme=github-dark&mode=dark&style=snake" />
+</picture>
+
+
+
+<div align="center">
+  <!---->
+</div>
+
+<p align="center"><sub>Vartik Anand · <a href="https://www.gitskins.com/readme-generator?template=community-creative-dev-rt3x">creative dev</a> template by <a href="https://www.gitskins.com/creators/himanshu201031">@himanshu201031</a> · generated with <a href="https://www.gitskins.com/readme-generator">GitSkins</a></sub></p>
